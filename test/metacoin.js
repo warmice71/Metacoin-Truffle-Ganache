@@ -6,10 +6,12 @@ contract('MetaCoin', (accounts) => {
     const balance = await metaCoinInstance.getBalance.call(accounts[0]);
 
     assert.equal(balance.valueOf(), 10000, "10000 wasn't in the first account");
+    // console.log("This is the " + balance.valueOf())
   });
   it('should call a function that depends on a linked library', async () => {
     const metaCoinInstance = await MetaCoin.deployed();
     const metaCoinBalance = (await metaCoinInstance.getBalance.call(accounts[0])).toNumber();
+    console.log("Metacoinbalance" + metaCoinBalance);
     const metaCoinEthBalance = (await metaCoinInstance.getBalanceInEth.call(accounts[0])).toNumber();
 
     assert.equal(metaCoinEthBalance, 2 * metaCoinBalance, 'Library function returned unexpected function, linkage may be broken');
