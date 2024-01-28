@@ -1,7 +1,8 @@
 const ConvertLib = artifacts.require("ConvertLib");
 const MetaCoin = artifacts.require("MetaCoin");
 const Ballot =  artifacts.require("Ballot")
-// const SimpleAuction = artifacts.require("SimpleAuction")
+const SimpleAuction = artifacts.require("SimpleAuction")
+const BlindAuction = artifacts.require("BlindAuction")
 
 
 module.exports = function(deployer) {
@@ -11,5 +12,6 @@ module.exports = function(deployer) {
   deployer.link(ConvertLib, MetaCoin);
   deployer.deploy(MetaCoin);
   deployer.deploy(Ballot, proposalName);
-  // deployer.deploy(SimpleAuction,300, "0xe6ebc74aa685527a83c9e0df01b21acf0a1e8286");
+  deployer.deploy(SimpleAuction,300, "0xf82eADBe87C2153001540b84E1410D61661E462a");
+  deployer.deploy(BlindAuction, 300, 300, "0x5B38Da6a701c568545dCfcB03FcB875f56beddC4");
 };

@@ -91,7 +91,5 @@ contract Ballot {
     {
         winnerName_ = proposals[winningProposal()].name;
     }
-
-
 }
 
